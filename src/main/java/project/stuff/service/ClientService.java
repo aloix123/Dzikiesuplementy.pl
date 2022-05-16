@@ -1,11 +1,12 @@
-package com.example.demo.service;
+package project.stuff.service;
 
-import com.example.demo.model.Client;
-import com.example.demo.repository.ClientRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import project.stuff.model.Client;
+import project.stuff.repository.ClientRepository;
 
 
 @Service

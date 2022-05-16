@@ -1,7 +1,5 @@
-package com.example.demo.controller;
+package project.stuff.controller;
 
-import com.example.demo.model.Client;
-import com.example.demo.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,6 +8,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import project.stuff.model.Client;
+import project.stuff.service.ClientService;
 
 @Controller
 public class ClientController {

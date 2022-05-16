@@ -1,10 +1,9 @@
-package com.example.demo;
+package project.stuff;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication(scanBasePackages = {"com.example.demo.service"})
+@SpringBootApplication(scanBasePackages = {"project.stuff.service"})
 public class Application {
 
 	public static void main(String[] args) {
