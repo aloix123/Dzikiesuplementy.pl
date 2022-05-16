@@ -1,45 +1,38 @@
-package project.stuff.model;
+package com.example.demo.model;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
-@Table(name = "cart", schema = "sys", catalog = "")
-public class CartEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Table(name = "cart")
+public class Cart {
+    @Getter
+    @Setter
     @Id
-    @Column(name = "cart_id")
-    private int cartId;
-    @Basic
-    @Column(name = "client_id")
-    private int clientId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cart_id", nullable = false)
+    private Integer id;
 
-    public int getCartId() {
-        return cartId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "client_id", nullable = false)
+    private Client client;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setCartId(int cartId) {
-        this.cartId = cartId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public int getClientId() {
-        return clientId;
+    public Client getClient() {
+        return client;
     }
 
-    public void setClientId(int clientId) {
-        this.clientId = clientId;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CartEntity that = (CartEntity) o;
-        return cartId == that.cartId && clientId == that.clientId;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(cartId, clientId);
-    }
 }
