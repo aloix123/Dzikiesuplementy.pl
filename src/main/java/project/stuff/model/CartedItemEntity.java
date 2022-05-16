@@ -1,67 +1,55 @@
-package project.stuff.model;
+package com.example.demo.model;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
-@Table(name = "carted_item", schema = "sys", catalog = "")
-public class CartedItemEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Table(name = "carted_item")
+public class CartedItem {
     @Id
-    @Column(name = "carted_item_id")
-    private int cartedItemId;
-    @Basic
-    @Column(name = "product_id")
-    private int productId;
-    @Basic
-    @Column(name = "cart_id")
-    private int cartId;
-    @Basic
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "carted_item_id", nullable = false)
+    private Integer id;
+
     @Column(name = "amount")
-    private int amount;
+    private Integer amount;
 
-    public int getCartedItemId() {
-        return cartedItemId;
+    @Column(name = "product_id")
+    private Integer productId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setCartedItemId(int cartedItemId) {
-        this.cartedItemId = cartedItemId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
-    public int getCartId() {
-        return cartId;
-    }
-
-    public void setCartId(int cartId) {
-        this.cartId = cartId;
-    }
-
-    public int getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(Integer amount) {
         this.amount = amount;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CartedItemEntity that = (CartedItemEntity) o;
-        return cartedItemId == that.cartedItemId && productId == that.productId && cartId == that.cartId && amount == that.amount;
+    public Integer getProductId() {
+        return productId;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(cartedItemId, productId, cartId, amount);
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
 }
