@@ -1,13 +1,16 @@
-package project.stuff.service;
+package com.example.demo.service;
 
+import com.example.demo.model.Client;
+import com.example.demo.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import project.stuff.model.Client;
-import project.stuff.repository.ClientRepository;
+
 
 @Service
 public abstract class ClientService {
+
     @Autowired
     private ClientRepository repository;
 
@@ -25,7 +28,7 @@ public abstract class ClientService {
 
     public void updateClient(long id, Client clientWithEditedData) {
         Client clientToEdit = repository.getById(id);
-        clientToEdit.setClientId(clientWithEditedData.getClientId());
+        clientToEdit.setId(clientWithEditedData.getId());
         clientToEdit.setAddress(clientWithEditedData.getAddress());
         clientToEdit.setBirthDate(clientWithEditedData.getBirthDate());
         clientToEdit.setCity(clientWithEditedData.getCity());
@@ -38,7 +41,23 @@ public abstract class ClientService {
         repository.save(clientToEdit);
     }
 
-//    @Query("SELECT * FROM clients WHERE login = ?1 and password = ?2")
-//    abstract Client getByLoginPassword(String login, String password);
 
+
+    public Client registerClient(String name, String surname, String email, String password) {
+        if (email != null && password != null && name != null && surname != null){
+            Client client = new Client();
+            client.setEmail(email);
+            client.setPassword(password);
+            client.setName(name);
+            client.setSurname(surname);
+            return repository.save(client);
+        } else {
+            return null;
+        }
+    }
+
+    public Client authenticate(String email, String password){
+        return repository.findByEmailAndPassword(email, password).orElse(null);
+    }
 }
+
