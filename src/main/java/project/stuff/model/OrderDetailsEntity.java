@@ -1,67 +1,56 @@
-package project.stuff.model;
+package com.example.demo.model;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
-@Table(name = "order_details", schema = "sys", catalog = "")
-public class OrderDetailsEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Table(name = "order_details")
+public class OrderDetail {
     @Id
-    @Column(name = "order_details_id")
-    private int orderDetailsId;
-    @Basic
-    @Column(name = "order_id")
-    private int orderId;
-    @Basic
-    @Column(name = "product_id")
-    private int productId;
-    @Basic
-    @Column(name = "amount_ordered")
-    private int amountOrdered;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_details_id", nullable = false)
+    private Integer id;
 
-    public int getOrderDetailsId() {
-        return orderDetailsId;
+    @Column(name = "amount_ordered", nullable = false)
+    private Integer amountOrdered;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setOrderDetailsId(int orderDetailsId) {
-        this.orderDetailsId = orderDetailsId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public int getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
-    }
-
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
-    public int getAmountOrdered() {
+    public Integer getAmountOrdered() {
         return amountOrdered;
     }
 
-    public void setAmountOrdered(int amountOrdered) {
+    public void setAmountOrdered(Integer amountOrdered) {
         this.amountOrdered = amountOrdered;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        OrderDetailsEntity that = (OrderDetailsEntity) o;
-        return orderDetailsId == that.orderDetailsId && orderId == that.orderId && productId == that.productId && amountOrdered == that.amountOrdered;
+    public Order getOrder() {
+        return order;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(orderDetailsId, orderId, productId, amountOrdered);
+    public void setOrder(Order order) {
+        this.order = order;
     }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
 }
