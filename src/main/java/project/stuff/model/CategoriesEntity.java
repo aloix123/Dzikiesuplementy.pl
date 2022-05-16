@@ -1,25 +1,24 @@
-package project.stuff.model;
+package com.example.demo.model;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
-@Table(name = "categories", schema = "sys", catalog = "")
-public class CategoriesEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Table(name = "categories")
+public class Category {
     @Id
-    @Column(name = "category_id")
-    private int categoryId;
-    @Basic
-    @Column(name = "category_name")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "category_id", nullable = false)
+    private Integer id;
+
+    @Column(name = "category_name", nullable = false, length = 45)
     private String categoryName;
 
-    public int getCategoryId() {
-        return categoryId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getCategoryName() {
@@ -30,16 +29,4 @@ public class CategoriesEntity {
         this.categoryName = categoryName;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CategoriesEntity that = (CategoriesEntity) o;
-        return categoryId == that.categoryId && Objects.equals(categoryName, that.categoryName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(categoryId, categoryName);
-    }
 }
