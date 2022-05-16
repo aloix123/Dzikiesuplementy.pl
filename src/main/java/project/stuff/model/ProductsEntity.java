@@ -1,43 +1,45 @@
-package project.stuff.model;
+package com.example.demo.model;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
-@Table(name = "products", schema = "sys", catalog = "")
-public class ProductsEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Table(name = "products")
+public class Product {
     @Id
-    @Column(name = "product_id")
-    private int productId;
-    @Basic
-    @Column(name = "title")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id", nullable = false)
+    private Integer id;
+
+    @Column(name = "title", nullable = false, length = 45)
     private String title;
-    @Basic
-    @Column(name = "category_id")
-    private int categoryId;
-    @Basic
-    @Column(name = "review_id")
-    private int reviewId;
-    @Basic
-    @Column(name = "description")
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "review_id", nullable = false)
+    private Review review;
+
+    @Lob
+    @Column(name = "description", nullable = false)
     private String description;
-    @Basic
-    @Column(name = "price")
-    private double price;
-    @Basic
+
+    @Column(name = "price", nullable = false)
+    private Double price;
+
     @Column(name = "discount")
     private Integer discount;
-    @Basic
-    @Column(name = "amount_in_stock")
-    private int amountInStock;
 
-    public int getProductId() {
-        return productId;
+    @Column(name = "amount_in_stock", nullable = false)
+    private Integer amountInStock;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -48,20 +50,20 @@ public class ProductsEntity {
         this.title = title;
     }
 
-    public int getCategoryId() {
-        return categoryId;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
-    public int getReviewId() {
-        return reviewId;
+    public Review getReview() {
+        return review;
     }
 
-    public void setReviewId(int reviewId) {
-        this.reviewId = reviewId;
+    public void setReview(Review review) {
+        this.review = review;
     }
 
     public String getDescription() {
@@ -72,11 +74,11 @@ public class ProductsEntity {
         this.description = description;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -88,24 +90,12 @@ public class ProductsEntity {
         this.discount = discount;
     }
 
-    public int getAmountInStock() {
+    public Integer getAmountInStock() {
         return amountInStock;
     }
 
-    public void setAmountInStock(int amountInStock) {
+    public void setAmountInStock(Integer amountInStock) {
         this.amountInStock = amountInStock;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ProductsEntity that = (ProductsEntity) o;
-        return productId == that.productId && categoryId == that.categoryId && reviewId == that.reviewId && Double.compare(that.price, price) == 0 && amountInStock == that.amountInStock && Objects.equals(title, that.title) && Objects.equals(description, that.description) && Objects.equals(discount, that.discount);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(productId, title, categoryId, reviewId, description, price, discount, amountInStock);
-    }
 }
