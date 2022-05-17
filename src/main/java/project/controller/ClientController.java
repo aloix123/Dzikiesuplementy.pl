@@ -1,22 +1,25 @@
-package project.stuff.controller;
+package project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import project.stuff.model.Client;
-import project.stuff.service.ClientService;
+import project.service.ClientService;
+import project.model.Client;
+
 
 @Controller
 public class ClientController {
 
+    boolean isLoggedIn = false;
+
     @Autowired
     private ClientService clientService;
 
+    @GetMapping("/")
+    public String viewHomePage() {
+        return "index.html";
+    }
 
     @GetMapping("/register")
     public String getRegisterPage(Model model){
@@ -45,6 +48,7 @@ public class ClientController {
                 client.getPassword());
         if(authenticated != null) {
             model.addAttribute("userEmail", authenticated.getEmail());
+            isLoggedIn = true;
             return "personal_page";
         }else {
             return "error_page";

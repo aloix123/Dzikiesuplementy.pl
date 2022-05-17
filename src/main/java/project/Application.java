@@ -1,9 +1,9 @@
-package project.stuff;
+package project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = {"project.stuff.service"})
+@SpringBootApplication(scanBasePackages = {"project"})
 public class Application {
 
 	public static void main(String[] args) {
