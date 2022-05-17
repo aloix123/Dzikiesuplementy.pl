@@ -1,16 +1,14 @@
-package project.stuff.service;
+package project.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import project.stuff.model.Client;
-import project.stuff.repository.ClientRepository;
+import project.model.Client;
+import project.repository.ClientRepository;
 
 
 @Service
-public abstract class ClientService {
+public class ClientService {
 
     @Autowired
     private ClientRepository repository;
