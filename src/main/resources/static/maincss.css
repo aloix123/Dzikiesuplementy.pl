@@ -1,9 +1,10 @@
 body{
-    height: 1000px;
+    
+    height: 2000px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(188, 211, 211);
+    background-color: rgb(52, 58, 58);
 }
 
 #container{
