@@ -2,7 +2,7 @@
     object-fit: cover;
     float: left;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 460px;
+    max-width: 400px;
     
     text-align: center;
     font-family: arial;
@@ -30,4 +30,22 @@
   
   .card button:hover {
     opacity: 0.7;
+  }
+  .productline1{
+    width: 100%;
+    float: left;
+    
+    margin-top:100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .productline2{
+    width: 100%;
+    float: left;
+    
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
