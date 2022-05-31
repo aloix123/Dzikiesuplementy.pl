@@ -49,7 +49,7 @@ public class ClientController {
         if(authenticated != null) {
             model.addAttribute("userEmail", authenticated.getEmail());
             isLoggedIn = true;
-            return "personal_page";
+            return "index";
         }else {
             return "error_page";
         }
