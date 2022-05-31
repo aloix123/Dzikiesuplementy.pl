@@ -33,6 +33,36 @@ public class ClientController {
         return "login_page";
     }
 
+    @GetMapping("/personal")
+    public String personalPage(){
+        return "personal_page";
+    }
+
+    @GetMapping("/creatine")
+    public String creatinePage(){
+        return "Creatine";
+    }
+
+    @GetMapping("/preworkout")
+    public String preworkoutPage(){
+        return "Preworkout";
+    }
+
+    @GetMapping("/whey")
+    public String wheyPage(){
+        return "Whey";
+    }
+
+    @GetMapping("/newspaper")
+    public String newspaperPage(){
+        return "Newspaper";
+    }
+
+    @GetMapping("/cart")
+    public String cartPage(){
+        return "koszyk";
+    }
+
     @PostMapping("/register")
     public String register(@ModelAttribute Client client){
         System.out.println("register request: " + client);
