@@ -13,7 +13,7 @@ import project.model.Client;
 @Controller
 public class ClientController {
 
-    boolean isLoggedIn = false;
+
 
     @Autowired
     private ClientService clientService;
@@ -85,7 +85,7 @@ public class ClientController {
                 client.getPassword());
         if (authenticated != null) {
             model.addAttribute("userEmail", authenticated.getEmail());
-            isLoggedIn = true;
+
             System.out.println(client.toString());
             return new ResponseEntity<>(client, HttpStatus.OK);
         } else {
