@@ -42,6 +42,7 @@ public class ClientService {
 
 
 
+
     public Client registerClient(String name, String surname, String email, String password) {
         if (email != null && password != null && name != null && surname != null){
             Client client = new Client();
@@ -58,5 +59,6 @@ public class ClientService {
     public Client authenticate(String email, String password){
         return repository.findByEmailAndPassword(email, password).orElse(null);
     }
+
 }
 

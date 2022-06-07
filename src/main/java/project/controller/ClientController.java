@@ -20,7 +20,7 @@ public class ClientController {
 
     @GetMapping("/")
     public String viewHomePage() {
-        return "redirect:/index.html";
+        return "index.html";
     }
 
     @GetMapping("/error")
@@ -34,11 +34,7 @@ public class ClientController {
         return "register_page";
     }
 
-    @GetMapping("/login")
-    public String getLoginPage(Model model) {
-        model.addAttribute("loginRequest", new Client());
-        return "login_page";
-    }
+
 
     @GetMapping("/personal")
     public String personalPage() {
@@ -78,19 +74,5 @@ public class ClientController {
         return reqisteredClient == null ? "error_page" : "redirect:/login";
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<Client> login(@ModelAttribute Client client, Model model) {
-        System.out.println("login request: " + client);
-        Client authenticated = clientService.authenticate(client.getEmail(),
-                client.getPassword());
-        if (authenticated != null) {
-            model.addAttribute("userEmail", authenticated.getEmail());
 
-            System.out.println(client.toString());
-            return new ResponseEntity<>(client, HttpStatus.OK);
-        } else {
-            viewErrorPage();
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
 }
