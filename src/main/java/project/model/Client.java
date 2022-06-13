@@ -14,8 +14,7 @@ public class Client {
     @Column(name = "address", length = 45)
     private String address;
 
-    @Column(name = "birth_date")
-    private LocalDate birthDate;
+
 
     @Column(name = "city", length = 45)
     private String city;
@@ -54,13 +53,7 @@ public class Client {
         this.address = address;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
 
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
 
     public String getCity() {
         return city;

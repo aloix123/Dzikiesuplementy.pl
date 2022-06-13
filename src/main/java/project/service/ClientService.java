@@ -29,7 +29,7 @@ public class ClientService {
         Client clientToEdit = repository.getById(id);
         clientToEdit.setId(clientWithEditedData.getId());
         clientToEdit.setAddress(clientWithEditedData.getAddress());
-        clientToEdit.setBirthDate(clientWithEditedData.getBirthDate());
+
         clientToEdit.setCity(clientWithEditedData.getCity());
         clientToEdit.setEmail(clientWithEditedData.getEmail());
         clientToEdit.setName(clientWithEditedData.getName());
