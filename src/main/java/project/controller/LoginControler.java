@@ -7,11 +7,11 @@ import java.security.Principal;
 
 @Controller
 public class LoginControler {
-    @GetMapping("/login")
+    @GetMapping("/lon")
     public String login(Principal principal) {
         if (principal != null) {
             return "redirect:/index.html";
         }
-        return "/login_page.html";
+        return "/login.html";
     }
 }

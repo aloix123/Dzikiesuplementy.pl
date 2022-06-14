@@ -1,6 +1,9 @@
 package project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,6 +28,12 @@ public class RegisterControler {
     @PostMapping("/registration")
     public String createNewUser(@ModelAttribute("client") Client student) {
         clientService.saveClient(student);
+        UserDetails user= User.withDefaultPasswordEncoder()
+                .username(student.getName())
+                .password(student.getPassword())
+                .roles("USER")
+                .build();
+        InMemoryUserDetailsManager cos=new InMemoryUserDetailsManager(user);
         return "redirect:/";
     }
 
