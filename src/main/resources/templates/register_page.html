@@ -9,12 +9,12 @@
 <div class="alert alert-info" th:if="${successMessage}" th:utext="${successMessage}"></div>
 <form th:action="@{/registration}" th:object="${client}" method="POST">
  Name <input type="text" th:field="*{name}"><br>
-city <input type="text" th:field="*{city}"><br>
+
 surname <input type="text" th:field="*{surname}"><br>
 adress    <input type="text" th:field="*{address}"><br>
 
     phonenumber     <input type="text" th:field="*{phoneNumber}"><br>
-    postalcode  <input type="text" th:field="*{postalCode}"><br>
+    postalcode  <input type="text" th:field="*{email}"><br>
  password  <input type="text" th:field="*{password}"><br>
 <button type="submit">Add Student</button>
 
