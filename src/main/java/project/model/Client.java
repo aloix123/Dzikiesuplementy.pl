@@ -1,19 +1,46 @@
 package project.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Client {
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id",unique=true, nullable = false)
     private Long clientid;
     private Long userid;
     String adress;
     String number;
     String name;
     String surname;
+
+    public Client() {
+    }
+
+    public Client(Long userid, String adress, String number, String name, String surname) {
+        this.userid = userid;
+        this.adress = adress;
+        this.number = number;
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 
     public Long getClientid() {
         return clientid;
