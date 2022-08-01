@@ -32,6 +32,9 @@ a{
     font-size: 50px;
     font-style: italic;
 }
+#navmenu{
+        text-decoration:none;
+      }
 .nav{
     
     display: flex;
@@ -43,6 +46,8 @@ a{
         margin-right: -50%;
         transform: translate(-50%, -50%)
 }
+
+
 #myCarousel{
     height: 600px;
    width: 1000px;
