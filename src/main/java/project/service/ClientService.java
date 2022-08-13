@@ -1,15 +1,26 @@
 package project.service;
 
 
+import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.model.Client;
+import project.model.User;
 import project.repository.ClientRepository;
+
+import java.io.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
 
 @Service
 public class ClientService {
-
+    @Autowired
+    SessionFactory factory;
     @Autowired
     private ClientRepository repository;
 
@@ -24,7 +35,31 @@ public class ClientService {
     public void deleteClient(long id) {
         repository.deleteById(id);
     }
+    public void setuserparameters() throws FileNotFoundException, IOException {
+        File file = new File("userparameters.txt");
+        Scanner sc = null;
+        sc = new Scanner(file);
+        Session session = factory.openSession();
+        String sql = "SELECT adress,name,number,surname FROM CLIENT where userid=(SELECT ID FROM USER WHERE username='"+sc.next()+"')";
+        SQLQuery query = session.createSQLQuery(sql);
+        query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        List results = query.list();
+        System.out.println(results);
+        File clientfile = new File("clientparameters.txt");
+        FileWriter fileWriter= null;
+        fileWriter = new FileWriter(clientfile,false);
+        PrintWriter printWriter=new PrintWriter(fileWriter);
+        for(Object object : results) {
+            Map row = (Map)object;
+            System.out.println(row);
+            printWriter.println(row.get("ADRESS"));
+            printWriter.println(row.get("NUMBER"));
+            printWriter.println(row.get("SURNAME"));
+            printWriter.println(row.get("NAME"));
+        }
 
+        printWriter.close();
+    }
 
 
 

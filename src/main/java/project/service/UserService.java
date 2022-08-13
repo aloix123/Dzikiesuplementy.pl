@@ -21,6 +21,7 @@ public class UserService {
     public void saveuser(User user){
         userREpository.save(user);
     }
+
     public boolean checkIfUserInData(User user){
         Session session=factory.openSession();
 

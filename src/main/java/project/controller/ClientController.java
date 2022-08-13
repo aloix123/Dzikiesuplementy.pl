@@ -8,6 +8,8 @@ import project.service.ClientService;
 import project.util.MainPageHandler;
 import project.util.UserFileHandler;
 
+import java.io.IOException;
+
 
 @Controller
 public class ClientController {
@@ -18,10 +20,11 @@ public class ClientController {
     private ClientService clientService;
 
     @GetMapping("/")
-    public String viewHomePage(Model model) {
+    public String viewHomePage(Model model) throws IOException {
         if (MainPageHandler.checkIfFileClear()){
             model.addAttribute("flag","userloggedin");
             model.addAttribute("username", "Witaj "+UserFileHandler.getUserName());
+            clientService.setuserparameters();
         }
         else{
             model.addAttribute("flag","userNotloggedin");

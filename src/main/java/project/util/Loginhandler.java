@@ -9,6 +9,8 @@ public class Loginhandler {
     public static void addUserToText(User user){
         String username= user.getUsername();
         String password= user.getPassword();
+
+
         ////////////////////////////////will be finished soon////////////////////////////////
         String fileName="userparameters.txt";
         File file=new File(fileName);
@@ -21,6 +23,7 @@ public class Loginhandler {
         PrintWriter printWriter=new PrintWriter(fileWriter);
         printWriter.println(username);
         printWriter.println(password);
+
         printWriter.close();
 
 
