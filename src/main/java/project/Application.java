@@ -36,7 +36,7 @@ public class Application {
 		System.out.println(" also client informations Destroyed");
 	}
 	//TODO
-	//zrób wkońcu normalną listę produktów
+	//stwórz koszyk działający
 	//utwórz funkcję dodaj produkt
 	//dodaj funkcję przy rejestracji dla ludzi , która sprawdza czy jest user z takimi samymi parametrami
 
