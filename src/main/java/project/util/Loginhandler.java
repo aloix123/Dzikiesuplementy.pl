@@ -4,7 +4,7 @@ import project.model.User;
 
 import java.io.*;
 
-public class Loginhandler {
+public class Loginhandler implements Filehandler {
 
     public static void addUserToText(User user){
         String username= user.getUsername();
@@ -28,7 +28,7 @@ public class Loginhandler {
 
 
     }
-    public static void clearfile(){
+    public  void clearfile(){
         File file = new File("userparameters.txt");
         PrintWriter writer = null;
         try {

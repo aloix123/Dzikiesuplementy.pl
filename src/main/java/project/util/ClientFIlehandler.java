@@ -2,12 +2,9 @@ package project.util;
 
 import project.model.User;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
-public class ClientFIlehandler {
+public class ClientFIlehandler  implements Filehandler{
 
     public static void addClientToText(User user){
         String username= user.getUsername();
@@ -27,4 +24,19 @@ public class ClientFIlehandler {
 
 
     }
-}
+
+    @Override
+    public void clearfile() {
+        File file = new File("clientparameters.txt");
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        writer.print("");
+        writer.close();
+
+    }
+    }
+
