@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Document</title>
     <link rel="stylesheet" href="maincss.css" type="text/css">
-    <link rel="stylesheet" href="Creatne.css" type="text/css">
+    <link th:rel="stylesheet" href="Creatne.css" type="text/css">
     <div th:replace="/fragments/header :: header"/>
 </head>
 <body>
@@ -25,6 +25,7 @@
                 <p class="price">30zł</p>
                 <p>jedna z tańszych  i solidnych kreatyn na ryknu.</p>
                 <p><button>dodaj do koszyka</button></p>
+                <p><a th:href="@{/addcreatine/{id}(id=${Product.id})}">add product</a></p>
 
             </div>
 

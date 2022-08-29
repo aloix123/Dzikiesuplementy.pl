@@ -23,7 +23,26 @@ public class ClientService {
     SessionFactory factory;
     @Autowired
     private ClientRepository repository;
+    public int  getclientid() throws FileNotFoundException {
+        File file = new File("clientparameters.txt");
+        Scanner sc = null;
+        sc = new Scanner(file);
+        Session session = factory.openSession();
+        sc.next();
+        sc.next();
+        String surnamename=sc.next();
+        String name=sc.next();
+        String sqlQuery="SELECT ID FROM CLIENT  WHERE  NAME='"+name+"' and Surname='"+surnamename+"'";
+        SQLQuery query = session.createSQLQuery(sqlQuery);
+        query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        List results = query.list();
+        for(Object object : results) {
+            Map row = (Map) object;
+            return Integer.parseInt(String.valueOf(row.get("ID")));
+        }
+        return  0;
 
+    }
     public void saveClient(Client client) {
         repository.save(client);
     }
