@@ -13,8 +13,8 @@ public class Product {
     int price;
     String type;
     int amount;
-    @Lob
-    public byte[] image;
+
+    public String image;
 
     public Product() {
     }
@@ -80,7 +80,7 @@ public class Product {
                 '}';
     }
 
-    public Product(Long id, String name, String description, int price, String type, int amount, byte[] image) {
+    public Product(Long id, String name, String description, int price, String type, int amount, String image) {
         this.id = id;
         this.name = name;
         this.description = description;

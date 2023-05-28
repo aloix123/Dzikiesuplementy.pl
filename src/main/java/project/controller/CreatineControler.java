@@ -45,14 +45,14 @@ public class CreatineControler {
         cartService.saveCart(cart);
 
         if (MainPageHandler.checkIfFileClear()) {
-            model.addAttribute("flag", "userloggedin");
+            model.addAttribute("flag", "userNotloggedin");
         }
 
         else{
-            model.addAttribute("flag","userNotloggedin");
+            model.addAttribute("flag","userloggedin");
         }
         System.out.println(creatineService.getCreatines());
         model.addAttribute("creatines",creatineService.getCreatines());
-        return "Creatine";
+        return "redirect:/creatine";
     }
 }

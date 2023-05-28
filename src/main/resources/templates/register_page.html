@@ -9,9 +9,9 @@
 <div class="alert alert-info" th:if="${successMessage}" th:utext="${successMessage}"></div>
 <form th:action="@{/registration}" th:object="${client}" method="POST">
     <div th:object="${user}">
-        password  <input type="text" th:field="*{password}"><br>
-       username <input type="text" th:field="*{username}"><br>
 
+       username <input type="text" th:field="*{username}"><br>
+        password  <input type="text" th:field="*{password}"><br>
 
     </div>
     <div th:object="${client}">
@@ -25,7 +25,7 @@
 
 
 
-<button type="submit">Add Student</button>
+<button type="submit">create acount</button>
 
 </form>
 

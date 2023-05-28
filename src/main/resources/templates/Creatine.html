@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Document</title>
-    <link rel="stylesheet" href="maincss.css" type="text/css">
+    <link th:rel="stylesheet" href="maincss.css" type="text/css">
     <link th:rel="stylesheet" href="Creatne.css" type="text/css">
     <div th:replace="/fragments/header :: header"/>
 </head>
@@ -19,13 +19,21 @@
 
 
             <div class="card"  >
-                <img src="Images/kreatyna.gif" alt="olimps" style='height: 300px; width: 600px'>
+                <img th:src="@{${'Images/Creatine/'+Product.image}}" alt="olimps" style='height: 300px; width: 600px'>
                 <td th:text="${Product.name}" />
-                <img th:src="${Product.image}" a/>
                 <p class="price">30zł</p>
                 <p>jedna z tańszych  i solidnych kreatyn na ryknu.</p>
-                <p><button>dodaj do koszyka</button></p>
-                <p><a th:href="@{/addcreatine/{id}(id=${Product.id})}">add product</a></p>
+                <div th:switch="${flag}">
+                    <p th:case="userloggedin">
+                        <a th:href="@{/addcreatine/{id}(id=${Product.id})}">kup produkt</a>
+                    </p>
+
+                    <p th:case="userNotloggedin">
+                        <a> żębu kupić musisz się zalogować</a>
+
+                    </p>
+                </div>
+
 
             </div>
 
