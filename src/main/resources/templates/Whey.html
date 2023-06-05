@@ -8,34 +8,29 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Document</title>
-    <link rel="stylesheet" href="maincss.css" type="text/css">
-    <link rel="stylesheet" href="Creatne.css" type="text/css">
+
+    <div th:replace="/fragments/header :: header"></div>
 </head>
 <body>
-    <div id="container">
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <img src="Images/logo.gif" width = "300" height = "100">
-              </div>
-              <ul class="nav navbar-nav">
-                
-                <li><a href="creatine">Kreatyna</a></li>
-                <li><a href="whey">Białko</a></li>
-                <li><a href="preworkout">przedtreningówka</a></li>
-                <li><a href="newspaper">gazetki</a></li>
-                <li><a href="personal">portfloio</a></li>
-                <li><a href="cart"><img  src="Images/koszyk.gif" width = "100" height = "50"></a></li>
-                <li><a href="login">zaloguj sie </a></li>
-              </ul>
+<div th:replace="/fragments/header :: navbar"></div>
+<div class="gg">
+    <tr   th:each="Product: ${whey}" enctype="multipart/form-data">
+        <div class="card"  >
+            <img th:src="@{${Product.image}}" alt="olimps" style='height: 300px; width: 600px'>
+            <td th:text="${Product.name}" />
+            <p class="price">30zł</p>
+            <div th:switch="${flag}">
+                <p th:case="userloggedin">
+                    <a th:href="@{/addwhey/{id}(id=${Product.id})}">kup produkt</a>
+                </p>
+
+                <p th:case="userNotloggedin">
+                    <a> żębu kupić musisz się zalogować</a>
+
+                </p>
             </div>
-        </nav>
-        <h></h>
-        <h1>Imie:</h1>
-        <h1>Nazwisko:</h1>
-        <h1>Pesel:</h1>
-        <h1>kod pocztowy:</h1>
-        <h1>adres</h1>
-    </div>
+        </div>
+    </tr>
+</div>
 </body>
 </html>

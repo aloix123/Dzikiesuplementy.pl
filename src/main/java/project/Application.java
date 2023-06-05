@@ -30,9 +30,8 @@ public class Application {
 		System.out.println(" also client informations Destroyed");
 	}
 	//TODO
+	//napisz funkcję która wyloguje usera
+	//napraw koszyk
 	//
-	//napraw koszyk działający
-	//utwórz funkcję dodaj produkt
-	//dodaj funkcję przy rejestracji dla ludzi , która sprawdza czy jest user z takimi samymi parametrami
 
 }

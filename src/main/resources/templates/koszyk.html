@@ -10,33 +10,27 @@
     <title>Document</title>
     <link rel="stylesheet" href="maincss.css" type="text/css">
     <link rel="stylesheet" href="Creatne.css" type="text/css">
+    <div th:replace="/fragments/header :: header"/>
+
 </head>
 <body>
-    <div id="container">
-        
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <img src="Images/logo.gif" width = "300" height = "100">
-              </div>
-              <ul class="nav navbar-nav">
-                
-                <li><a href="creatine">Kreatyna</a></li>
-                <li><a href="whey">Białko</a></li>
-                <li><a href="preworkout">przedtreningówka</a></li>
-                <li><a href="newspaper">gazetki</a></li>
-                <li><a href="personal">portfloio</a></li>
-                <li><a href="cart"><img  src="Images/koszyk.gif" width = "100" height = "50"></a></li>
-                <li><a href="login">zaloguj sie </a></li>
-              </ul>
+<div th:replace="/fragments/header :: navbar"/>
+<div>
+    <tr th:each="Product: ${userproducts}" enctype="multipart/form-data">
+        <div class="card"  >
+            <div th:switch="${flag}">
+                <p th:case="userloggedin">
+                    <img th:src="@{${Product.image}}" alt="olimps" style='height: 300px; width: 600px'>
+                    <td th:text="${Product.name}" />
+                    <p class="price">30zł</p>
+                </p>
+                <p th:case="userNotloggedin">
+                    <a> żęby kupić coś nalerzy się zalogować </a>
+                </p>
             </div>
-        </nav>
-        tutaj będzie lista wszystkich produktów do zakupu i koszyk kup
+        </div>
+    </tr>
 
-
-
-
-    </div>
-     
+</div>
 </body>
 </html>
