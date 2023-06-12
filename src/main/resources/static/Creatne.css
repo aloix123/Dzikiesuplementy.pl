@@ -6,14 +6,14 @@
 
 
     font-family: arial;
-    background-color:rgb(153, 255, 204);
+    background-color:rgb(153, 255, 255);
 
     margin: 30px;
     
   }
 .gg{
     float:right;
-    background-color:rgb(0, 153, 0);
+    background-color:rgb(153, 255, 204);
 .price {
     color: grey;
     font-size: 22px;
@@ -24,7 +24,7 @@
     outline: 0;
     padding: 12px;
     color: white;
-    background-color: #000;
+    background-color:rgb(60, 60, 60);
     text-align: center;
     cursor: pointer;
     width: 100%;

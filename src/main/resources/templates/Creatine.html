@@ -19,13 +19,13 @@
                 <td th:text="${Product.name}" />
                 <p class="price">30zł</p>
                 <p>jedna z tańszych  i solidnych kreatyn na ryknu.</p>
-                <div th:switch="${flag}">
+                <div class=" card button" th:switch="${flag}">
                     <p th:case="userloggedin">
                         <a th:href="@{/addcreatine/{id}(id=${Product.id})}">kup produkt</a>
                     </p>
 
                     <p th:case="userNotloggedin">
-                        <a> żębu kupić musisz się zalogować</a>
+                        <a> żeby kupić musisz się zalogować</a>
 
                     </p>
                 </div>
