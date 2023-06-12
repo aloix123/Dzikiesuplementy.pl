@@ -1,18 +1,11 @@
-body{
-    
-    height: 2000px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(52, 58, 58);
-}
+
 
 #container{
     height: 100%;
    
     
     width: 80%;
-    background-color: rgb(231, 231, 231)
+    background-color: rgb(231, 2, 231)
     
 }
 #logo{

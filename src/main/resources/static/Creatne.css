@@ -1,16 +1,19 @@
 .card {
-    object-fit: cover;
-    float: left;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    float:right;
+    box-shadow: 0 4px 8px 0 rgba(0, 40, 0, 0.2);
     max-width: 400px;
-    
-    text-align: center;
+
+
     font-family: arial;
     
     margin: 30px;
     
   }
-  
+.gg{
+    float:right;
+    background-color: rgb(52, 150, 100);
+}
   .price {
     color: grey;
     font-size: 22px;

@@ -14,7 +14,7 @@ public class Product {
     String type;
     int amount;
 
-    public String image;
+     public String image;
 
     public Product() {
     }
@@ -67,7 +67,6 @@ public class Product {
         this.amount = amount;
     }
 
-
     @Override
     public String toString() {
         return "Product{" +
@@ -77,7 +76,16 @@ public class Product {
                 ", price=" + price +
                 ", type='" + type + '\'' +
                 ", amount=" + amount +
+                ", image='" + image + '\'' +
                 '}';
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Product(Long id, String name, String description, int price, String type, int amount, String image) {
