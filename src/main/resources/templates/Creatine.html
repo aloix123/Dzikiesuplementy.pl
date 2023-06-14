@@ -19,7 +19,7 @@
                 <td th:text="${Product.name}" />
                 <p class="price">30zł</p>
                 <p>jedna z tańszych  i solidnych kreatyn na ryknu.</p>
-                <div class=" card button" th:switch="${flag}">
+                <div class=" card b" th:switch="${flag}">
                     <p th:case="userloggedin">
                         <a th:href="@{/addcreatine/{id}(id=${Product.id})}">kup produkt</a>
                     </p>

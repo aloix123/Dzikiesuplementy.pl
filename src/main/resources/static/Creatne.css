@@ -9,7 +9,13 @@
     background-color:rgb(153, 255, 255);
 
     margin: 30px;
-    
+.bacetcard{
+    float:left;
+    box-shadow: 0 4px 8px 0 rgba(0, 40, 0, 0.2);
+    width: 100%;
+    font-family: arial;
+    background-color:rgb(153, 255, 255);
+}
   }
 .gg{
     float:right;
@@ -19,7 +25,7 @@
     font-size: 22px;
   }
   
-  .card button {
+.card b {
     border: none;
     outline: 0;
     padding: 12px;

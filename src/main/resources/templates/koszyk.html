@@ -17,7 +17,7 @@
 <div th:replace="/fragments/header :: navbar"/>
 <div>
     <tr th:each="Product: ${userproducts}" enctype="multipart/form-data">
-        <div class="card"  >
+        <div class="bacetcard"  >
             <div th:switch="${flag}">
                 <p th:case="userloggedin">
                     <img th:src="@{${Product.image}}" alt="olimps" style='height: 300px; width: 600px'>
