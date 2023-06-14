@@ -1,0 +1,51 @@
+.wrapper{
+  position: fixed;
+  right: 0;
+
+  z-index: 1030;
+
+  bottom: 0;
+  width:500px;
+   height:200px;
+}
+
+b{
+  width: 500px;
+  height: 200px;
+  line-height: 40px;
+  font-size: 100px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #333;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  transition: all .35s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+b span {
+  position: relative;
+  z-index: 2;
+}
+
+b:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #ff003b;
+  transition: all .35s;
+}
+
+b:hover{
+  color: #fff;
+}
+
+b:hover:after{
+  width: 100%;
+}
