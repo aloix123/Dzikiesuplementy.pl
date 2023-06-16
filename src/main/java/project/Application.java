@@ -30,8 +30,11 @@ public class Application {
 		System.out.println(" also client informations Destroyed");
 	}
 	//TODO
-	//napisz funkcję która wyloguje usera
-	//napraw koszyk
-	//
+
+	//FIXME NAPRAW KOSZYK:
+	// - NAPRAW PRZYCISKI
+	// - NAPISZ KOD KTÓ¶Y INCREMENTUJE I DECREMENTUJE ILOŚĆ PRODUKTU
+	// - SPRAW ABY W KOSZYKU NIE BYŁO TYCH SAMYCH PRODUKTÓW
+	// - SPRAW ABY DODANIE NOWEGO PRODUKTU DODAŁO ILOŚĆ +1 JEŚLI JEST W KOSZYKU TAKI PRODUKT
 
 }
