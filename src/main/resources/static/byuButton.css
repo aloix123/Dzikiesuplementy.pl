@@ -58,6 +58,7 @@ b:hover:after{
     background-color:rgb(153, 255, 255);
     }
 .leftcard{
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,4 +67,5 @@ b:hover:after{
     height:400px;
     font-family: arial;
     background-color:rgb(153, 255, 255);
+    float:left;
 }
