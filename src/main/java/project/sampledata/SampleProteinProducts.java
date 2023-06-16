@@ -24,7 +24,7 @@ public class SampleProteinProducts implements CommandLineRunner,SampleProduct{
         int precount=proteinNameList.toArray().length;
         int startingId=14;
         for (int index = 0; index<precount; index++){
-            Product product=new Product(Long.valueOf(index+startingId),"ms index "+index+startingId,"desc", Math.toIntExact(index),"whey",100,  "Images/protein/"+proteinNameList.get(index));
+            Product product=new Product(Long.valueOf(index+startingId),"ms index "+index+startingId,"desc", Math.toIntExact(index),"whey",0,  "Images/protein/"+proteinNameList.get(index));
 
             System.out.println(product.toString());
             productService.addProduct(product);

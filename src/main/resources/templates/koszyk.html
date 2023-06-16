@@ -12,16 +12,18 @@
 
     <div th:replace="/fragments/header :: header"/>
     <link rel="stylesheet" href="byuButton.css" type="text/css">
+    <link rel="stylesheet" href="bacetbuttons.css" type="text/css">
 
 </head>
 <body>
 <div th:replace="/fragments/header :: navbar"/>
 <div>
     <tr th:each="Product: ${userproducts}" enctype="multipart/form-data">
+
         <div class="bacetcard"  >
             <div th:switch="${flag}">
                 <p th:case="userloggedin">
-                    <img th:src="@{${Product.image}}" alt="olimps" style='height: 300px; width: 600px'>
+                    <img th:src="@{${Product.image}}" alt="olimps" >
                     <td th:text="${Product.name}" />
                     <p class="price">30zł</p>
                 </p>
@@ -29,8 +31,13 @@
                     <a> żęby kupić coś nalerzy się zalogować </a>
                 </p>
             </div>
+
+        </div>
+        <div class="leftcard">
+            <a href="#" class="myButton">+</a>
         </div>
     </tr>
+
 </div>
 <div class="wrapper">
     <b href="#"><span>Kup teraz</span></b>

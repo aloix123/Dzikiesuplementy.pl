@@ -52,7 +52,16 @@ b:hover:after{
 .bacetcard{
     float:left;
     box-shadow: 0 4px 8px 0 rgba(0, 40, 0, 0.2);
-    width: 100%;
+    width: 50%;
+    height:400px
     font-family: arial;
     background-color:rgb(153, 255, 255);
     }
+.leftcard{
+    float:left;
+    box-shadow: 0 4px 8px 0 rgba(0, 40, 0, 0.2);
+    width: 50%;
+    height:400px
+    font-family: arial;
+    background-color:rgb(153, 255, 255);
+}
