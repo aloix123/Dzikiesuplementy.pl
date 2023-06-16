@@ -58,7 +58,8 @@ b:hover:after{
     background-color:rgb(153, 255, 255);
     }
 .leftcard{
-
+    margin:auto;
+    text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0, 40, 0, 0.2);
     width: 50%;
     height:400px;
