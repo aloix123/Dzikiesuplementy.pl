@@ -23,7 +23,7 @@
         <div class="bacetcard"  >
             <div th:switch="${flag}">
                 <p th:case="userloggedin">
-                    <img th:src="@{${Product.image}}" alt="olimps" >
+                    <img th:src="@{${Product.image}}" alt="olimps" height="360px">
                     <td th:text="${Product.name}" />
                     <p class="price">30zł</p>
                 </p>
@@ -34,6 +34,8 @@
         </div>
         <div class="leftcard">
             <a href="#" class="myButton">+</a>
+            <td th:text="${Product.amount}" />
+            <a href="#" class="myButton" float="left">-</a>
         </div>
     </tr>
 
