@@ -12,9 +12,7 @@ import project.repository.ProductRepository;
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class BasketService {
@@ -32,7 +30,6 @@ public class BasketService {
         SQLQuery productquery = session.createSQLQuery(Sqlproductquery);
         productquery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         var productIdList = productquery.list();
-        System.out.println(productIdList);
         List<Product> resultlist=new ArrayList<>();
         for (Object object : productIdList) {
             Map row = (Map) object;
@@ -41,18 +38,35 @@ public class BasketService {
             query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
             List results = query.list();
             List elementList=new ArrayList();
+
+
+
             for (Object t : results) {
                 Map r= (Map) t;
                 Long id=Long.valueOf(((BigInteger) r.get("ID")).intValue());
+                System.out.println(productIdList);
+                System.out.println(id);
                 Product userproduct=new Product(id, (String) r.get("NAME"), (String) r.get("DESCRIPTION"), (int) r.get("PRICE"), (String) r.get("TYPE"), (int) r.get("AMOUNT"), (String) r.get("IMAGE"));
-                resultlist.add(userproduct);
+                if (resultlist.contains(userproduct)){
+                    System.out.println("działam tutaj");
+                    for (Product p :resultlist){
+                        if (userproduct.equals(p)){
+                            p.setAmount(p.getAmount()+1);
+
+                        }
+                    }
+                }
+                else{
+                    resultlist.add(userproduct);
+                }
+
+
 
             }
-            System.out.println(results);
+
 
 
         }
-        System.out.println(resultlist);
 
 
         return resultlist;

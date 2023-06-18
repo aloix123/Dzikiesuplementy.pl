@@ -66,7 +66,9 @@ public class Product {
     public void setAmount(int amount) {
         this.amount = amount;
     }
-
+    public void increaseAmount(){
+        this.amount++;
+    }
     @Override
     public String toString() {
         return "Product{" +
