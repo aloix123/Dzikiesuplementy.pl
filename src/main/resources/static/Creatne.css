@@ -51,3 +51,10 @@
     justify-content: center;
     align-items: center;
   }
+  #mainspace{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  }
