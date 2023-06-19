@@ -9,7 +9,7 @@
    height:200px;
 }
 
-b{
+.b{
   width: 500px;
   height: 200px;
   line-height: 40px;
@@ -26,12 +26,12 @@ b{
   justify-content: center;
 
 }
-b span {
+.b span {
   position: relative;
   z-index: 2;
 }
 
-b:after{
+.b:after{
   position: absolute;
   content: "";
   top: 0;
@@ -42,11 +42,11 @@ b:after{
   transition: all .35s;
 }
 
-b:hover{
+.b:hover{
   color: #fff;
 }
 
-b:hover:after{
+.b:hover:after{
   width: 100%;
 }
 .bacetcard{

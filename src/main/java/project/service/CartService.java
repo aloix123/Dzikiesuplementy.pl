@@ -45,5 +45,8 @@ public class CartService {
 
 
     }
+    public  void clearCart(){
+        cartRepository.deleteAll();
+    }
 
 }
