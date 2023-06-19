@@ -11,9 +11,50 @@
 
 
     <div th:replace="/fragments/header :: header"/>
-    <link rel="stylesheet" href="byuButton.css" type="text/css">
-    <link rel="stylesheet" href="bacetbuttons.css" type="text/css">
 
+    <link rel="stylesheet" href="bacetbuttons.css" type="text/css">
+    <link rel="stylesheet" href="byuButton.css" type="text/css">
+    <style>
+        button {
+          position: relative;
+          display: inline-block;
+          margin: 15px;
+          padding: 15px 30px;
+          text-align: center;
+          font-size: 18px;
+          letter-spacing: 1px;
+          text-decoration: none;
+          color: #725AC1;
+          background: transparent;
+          cursor: pointer;
+          transition: ease-out 0.5s;
+          border: 2px solid #725AC1;
+          border-radius: 10px;
+          box-shadow: inset 0 0 0 0 #725AC1;
+          height:100px;
+          width:300px;
+    }
+
+    button:hover {
+      color: white;
+      box-shadow: inset 0 -100px 0 0 #725AC1;
+    }
+
+    button:active {
+      transform: scale(0.9);
+     }
+    #butpoz{
+        position: fixed;
+        right:    1px;
+        bottom:   1px;
+
+    }
+
+
+
+       }
+
+    </style>
 </head>
 <body>
 <div th:replace="/fragments/header :: navbar"/>
@@ -46,8 +87,9 @@
 
     </tr>
 </div>
-<div class="wrapper">
-    <b href="#"><span>Kup teraz</span></b>
+<div id="butpoz" >
+    <a th:href="@{/cart/clear}"><button> Kup teraz </button></a>
 </div>
+
 </body>
 </html>

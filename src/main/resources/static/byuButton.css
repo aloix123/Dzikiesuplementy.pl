@@ -1,53 +1,34 @@
-.wrapper{
-  position: fixed;
-  right: 0;
-
-  z-index: 1030;
-
-  bottom: 0;
-  width:500px;
-   height:200px;
+.btn {
+ display: inline-block;
+ padding: 0.9rem 1.8rem;
+ font-size: 16px;
+ font-weight: 700;
+ color: white;
+ border: 3px solid rgb(252, 70, 100);
+ cursor: pointer;
+ position: relative;
+ background-color: transparent;
+ text-decoration: none;
+ overflow: hidden;
+ z-index: 1;
+ font-family: inherit;
 }
 
-b{
-  width: 500px;
-  height: 200px;
-  line-height: 40px;
-  font-size: 100px;
-  font-family: sans-serif;
-  text-decoration: none;
-  color: #333;
-  border: 2px solid #333;
-  letter-spacing: 2px;
-  text-align: center;
-  transition: all .35s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-}
-b span {
-  position: relative;
-  z-index: 2;
+.btn::before {
+ content: "";
+ position: absolute;
+ left: 0;
+ top: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgb(252, 70, 100);
+ transform: translateX(-100%);
+ transition: all .3s;
+ z-index: -1;
 }
 
-b:after{
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: #ff003b;
-  transition: all .35s;
-}
-
-b:hover{
-  color: #fff;
-}
-
-b:hover:after{
-  width: 100%;
+.btn:hover::before {
+ transform: translateX(0);
 }
 .bacetcard{
     float:left;
@@ -69,3 +50,33 @@ b:hover:after{
     background-color:rgb(153, 255, 255);
     float:left;
 }
+button {
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #725AC1;
+  background: transparent;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+  border: 2px solid #725AC1;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 0 #725AC1;
+}
+
+button:hover {
+  color: white;
+  box-shadow: inset 0 -100px 0 0 #725AC1;
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+
+
+

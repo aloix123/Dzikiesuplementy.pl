@@ -67,4 +67,20 @@ public class CartControler {
         return "redirect:/cart";
 
     }
+    @GetMapping("cart/clear")
+    public String buyproducts(Model model) throws FileNotFoundException{
+        cartService.clearCart();
+        if (MainPageHandler.checkIfFileClear()) {
+
+            model.addAttribute("flag", "userloggedin");
+
+        }
+
+        else{
+            model.addAttribute("flag","userNotloggedin");
+        }
+
+
+        return "redirect:/cart";
+    }
 }
