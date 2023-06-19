@@ -3,7 +3,7 @@ package project.model;
 import javax.persistence.*;
 
 @Entity
-public class Product {
+public class Product implements Comparable<Product> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -66,7 +66,9 @@ public class Product {
     public void setAmount(int amount) {
         this.amount = amount;
     }
-
+    public void increaseAmount(){
+        this.amount++;
+    }
     @Override
     public String toString() {
         return "Product{" +
@@ -96,5 +98,10 @@ public class Product {
         this.type = type;
         this.amount = amount;
         this.image = image;
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return this.getName().compareTo(o.getName());
     }
 }

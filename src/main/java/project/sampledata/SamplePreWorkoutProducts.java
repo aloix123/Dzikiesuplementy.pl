@@ -25,7 +25,7 @@ public class SamplePreWorkoutProducts implements CommandLineRunner,SampleProduct
         int precount=preWorkoutNameList.toArray().length;
         int startingId=9;
         for (int index = 0; index<precount; index++){
-            Product product=new Product(Long.valueOf(index+startingId),"ms index "+index+startingId,"desc", Math.toIntExact(index),"preworkout",0, "Images/preworkout/"+preWorkoutNameList.get(index));
+            Product product=new Product(Long.valueOf(index+startingId),"ms index "+index+startingId,"desc", Math.toIntExact(index),"preworkout",1, "Images/preworkout/"+preWorkoutNameList.get(index));
 
             System.out.println(product.toString());
             productService.addProduct(product);

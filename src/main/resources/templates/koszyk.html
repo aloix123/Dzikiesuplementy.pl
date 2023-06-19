@@ -18,7 +18,7 @@
 <body>
 <div th:replace="/fragments/header :: navbar"/>
 <div id="freespace"></div>
-<div>
+<div id="mainspace">
     <tr th:each="Product: ${userproducts}" enctype="multipart/form-data">
 
         <div class="bacetcard"  >
@@ -34,18 +34,17 @@
             </div>
         </div>
         <div class="leftcard">
-            <a href="#" class="myButton">+</a>
+            <a th:href="@{/cart/add/{id}(id=${Product.id})}" class="myButton">+</a>
         </div>
         <div class="leftcard">
             <h1>Ilość</h1>
             <td th:text="${Product.amount}" />
         </div>
         <div class="leftcard">
-            <a href="#" class="myButton">-</a>
+            <a th:href="@{/cart/remove/{id}(id=${Product.id})}" class="myButton">-</a>
         </div>
 
     </tr>
-
 </div>
 <div class="wrapper">
     <b href="#"><span>Kup teraz</span></b>

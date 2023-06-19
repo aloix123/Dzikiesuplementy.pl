@@ -36,7 +36,7 @@ public class SampleCreatineProducts implements CommandLineRunner,SampleProduct {
         int sampleproductcount=creatineNameList.toArray().length;
 
         for (int index = 0; index<sampleproductcount; index++){
-            Product product=new Product(Long.valueOf(index+1),"ms index "+index,"desc", Math.toIntExact(index),"creatine",0,"Images/Creatine/"+creatineNameList.get(index));
+            Product product=new Product(Long.valueOf(index+1),"ms index "+index,"desc", Math.toIntExact(index),"creatine",1,"Images/Creatine/"+creatineNameList.get(index));
 
             System.out.println(product.toString());
             productService.addProduct(product);

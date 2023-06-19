@@ -46,9 +46,15 @@
   .productline2{
     width: 100%;
     float: left;
-    
     margin: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  #mainspace{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
   }
