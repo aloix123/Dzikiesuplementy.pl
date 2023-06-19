@@ -33,8 +33,11 @@ public class Application {
 
 	//FIXME NAPRAW KOSZYK:
 	// - NAPRAW PRZYCISKI
-	// - NAPISZ KOD KTÓ¶Y INCREMENTUJE I DECREMENTUJE ILOŚĆ PRODUKTU
-	// - SPRAW ABY W KOSZYKU NIE BYŁO TYCH SAMYCH PRODUKTÓW
-	// - SPRAW ABY DODANIE NOWEGO PRODUKTU DODAŁO ILOŚĆ +1 JEŚLI JEST W KOSZYKU TAKI PRODUKT
+	// - Napisz funkcję "Kup teraz"
+	// - zmień wygląd portfolio
+	// - napraw logowanie do  i napisz errory stron(1. sprawdź czy nie pozostawia user pustych okien,2. sprawdź czy nie ma takiego samego usera 3.
+	// - zmień wygląd loginu
+	//  - jak będziesz miał czas to zmień te grafiki bo są brzyskie
+	// - napisz funkcję wyloguj
 
 }

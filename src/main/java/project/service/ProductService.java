@@ -21,4 +21,10 @@ public class ProductService {
     public List<Product> getproducts(){
         return productRepository.findAll();
     }
+    public Product getbyid(long id){
+        return productRepository.getById( id);
+    }
+    public void removebyid(long id){
+        productRepository.deleteById(id);
+    }
 }

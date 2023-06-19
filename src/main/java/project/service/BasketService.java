@@ -22,53 +22,40 @@ public class BasketService {
     private ProductRepository productRepository;
     @Autowired
     ClientService clientService;
+
     public List<Product> getUserProducts() throws FileNotFoundException {
         int uersId = clientService.getclientid();
         String Sqlproductquery = "SELECT PRODUCTID FROM CART WHERE CLIENTID=" + uersId;
-
         Session session = factory.openSession();
         SQLQuery productquery = session.createSQLQuery(Sqlproductquery);
         productquery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         var productIdList = productquery.list();
-        List<Product> resultlist=new ArrayList<>();
+        List<Product> resultlist = new ArrayList<>();
         for (Object object : productIdList) {
             Map row = (Map) object;
             String SQLquery = "SELECT * FROM PRODUCT WHERE ID=" + row.get("PRODUCTID");
             SQLQuery query = session.createSQLQuery(SQLquery);
             query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
             List results = query.list();
-            List elementList=new ArrayList();
-
-
-
+            List elementList = new ArrayList();
             for (Object t : results) {
-                Map r= (Map) t;
-                Long id=Long.valueOf(((BigInteger) r.get("ID")).intValue());
-                System.out.println(productIdList);
-                System.out.println(id);
-                Product userproduct=new Product(id, (String) r.get("NAME"), (String) r.get("DESCRIPTION"), (int) r.get("PRICE"), (String) r.get("TYPE"), (int) r.get("AMOUNT"), (String) r.get("IMAGE"));
-                if (resultlist.contains(userproduct)){
-                    System.out.println("działam tutaj");
-                    for (Product p :resultlist){
-                        if (userproduct.equals(p)){
-                            p.setAmount(p.getAmount()+1);
-
-                        }
+                Map r = (Map) t;
+                Long id = Long.valueOf(((BigInteger) r.get("ID")).intValue());
+                Product userproduct = new Product(id, (String) r.get("NAME"), (String) r.get("DESCRIPTION"), (int) r.get("PRICE"), (String) r.get("TYPE"), (int) r.get("AMOUNT"), (String) r.get("IMAGE"));
+                System.out.println(resultlist.contains(userproduct));
+                boolean isThesameFlag = true;
+                for (Product p : resultlist) {
+                    if (userproduct.getName().equals(p.getName())) {
+                        p.increaseAmount();
+                        isThesameFlag = false;
                     }
                 }
-                else{
+                if (isThesameFlag) {
                     resultlist.add(userproduct);
                 }
-
-
-
             }
-
-
-
         }
-
-
+        Collections.sort(resultlist);
         return resultlist;
     }
 
