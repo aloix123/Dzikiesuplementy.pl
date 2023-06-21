@@ -32,6 +32,7 @@
                             <p th:case="'userloggedin'">
                                 <a href="personal">portfloio</a>
                                 <a href="cart"><img  src="Images/koszyk.gif" width = "100" height = "50"></a>
+                                <a th:href="@{/logout}">wyloguj się </a>
                                 <a th:text="${username}"></a>
                             </p>
 

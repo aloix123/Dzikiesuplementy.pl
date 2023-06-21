@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import project.model.User;
 import project.service.UserService;
+import project.util.ClientFIlehandler;
 import project.util.Loginhandler;
 
 import java.io.BufferedReader;
@@ -30,16 +31,9 @@ public class LoginControler {
         model.addAttribute("user",user);
         return "/login.html";
     }
-
-
-
     @SneakyThrows
     @PostMapping("login")
     public String checklogin(@ModelAttribute("user") User user){
-
-
-
-
         if(userService.checkIfUserInData(user)){
             Loginhandler.addUserToText(user);
             return "redirect:/";
@@ -47,13 +41,14 @@ public class LoginControler {
         else {
             return "error_page";
         }
-
-
-
-
-
-
-
-
     }
+    @GetMapping("/logout")
+    public String logout(Model model) {
+        ClientFIlehandler clientFIlehandler=new ClientFIlehandler();
+        clientFIlehandler.clearfile();
+        Loginhandler loginhandler=new Loginhandler();
+        loginhandler.clearfile();
+        return "redirect:/";
+    }
+
 }
