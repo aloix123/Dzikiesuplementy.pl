@@ -60,32 +60,34 @@
 <div th:replace="/fragments/header :: navbar"/>
 <div id="freespace"></div>
 <div id="mainspace">
-    <tr th:each="Product: ${userproducts}" enctype="multipart/form-data">
+    <div>
+        <tr th:each="Product: ${userproducts}" enctype="multipart/form-data">
 
-        <div class="bacetcard"  >
-            <div th:switch="${flag}">
-                <p th:case="userloggedin">
-                    <img th:src="@{${Product.image}}" alt="olimps" height="360px">
-                    <td th:text="${Product.name}" />
+            <div class="bacetcard"  >
+                <div th:switch="${flag}">
+                    <p th:case="userloggedin">
+                        <img th:src="@{${Product.image}}" alt="olimps" height="360px">
+                        <td th:text="${Product.name}" />
                     <p class="price">30zł</p>
-                </p>
-                <p th:case="userNotloggedin">
-                    <a> żęby kupić coś nalerzy się zalogować </a>
-                </p>
+                    </p>
+                    <p th:case="userNotloggedin">
+                        <a> żęby kupić coś nalerzy się zalogować </a>
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="leftcard">
-            <a th:href="@{/cart/add/{id}(id=${Product.id})}" class="myButton">+</a>
-        </div>
-        <div class="leftcard">
-            <h1>Ilość</h1>
-            <td th:text="${Product.amount}" />
-        </div>
-        <div class="leftcard">
-            <a th:href="@{/cart/remove/{id}(id=${Product.id})}" class="myButton">-</a>
-        </div>
+            <div class="leftcard">
+                <a th:href="@{/cart/add/{id}(id=${Product.id})}" class="myButton">+</a>
+            </div>
+            <div class="leftcard">
+                <h1>Ilość</h1>
+                <td th:text="${Product.amount}" />
+            </div>
+            <div class="leftcard">
+                <a th:href="@{/cart/remove/{id}(id=${Product.id})}" class="myButton">-</a>
+            </div>
 
-    </tr>
+        </tr>
+    </div>
 </div>
 <div id="butpoz" >
     <a th:href="@{/cart/clear}"><button> Kup teraz </button></a>

@@ -52,7 +52,7 @@
     align-items: center;
   }
   #mainspace{
-    margin: auto;
+    margin:0 auto;
     width:80%;
 }
 
