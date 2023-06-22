@@ -34,6 +34,10 @@
   .card button:hover {
     opacity: 0.7;
   }
+  #freespace{
+      height:100px;
+      width:100%;
+  }
   .productline1{
     width: 100%;
     float: left;
