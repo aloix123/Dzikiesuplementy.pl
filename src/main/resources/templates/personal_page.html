@@ -18,16 +18,10 @@
     <div th:replace="/fragments/header :: navbar"/>
     <div id="freespace"></div>
     <div id="portfolioDiv">
-        <br/>
-        <h1 th:text="${name}" th:remove="tag"> adress</h1>
-        <br/>
-        <h1 th:text="${name}" th:remove="tag"> adress</h1>
-        <br/>
-        <h1 th:text="${surname}" th:remove="tag"> surname</h1>
-        <br/>
-        <span th:text="${adress}" th:remove="tag"> adress</span>
-        <br/>
-        <span th:text="${number}" th:remove="tag"> number</span>
+        <table class="table">
+            <tr><th>name</th><th>surname</th><th>adress</th><th>number</th></tr>
+            <tr><td><span th:text="${surname}" th:remove="tag"> surname</span></td><td><span th:text="${adress}" th:remove="tag"> adress</span></td><td><span th:text="${adress}" th:remove="tag"> adress</span></td><td><span th:text="${number}" th:remove="tag"> number</span></td></tr>
+        </table>
     </div>
 </div>
 </body>

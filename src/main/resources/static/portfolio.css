@@ -12,13 +12,16 @@
 
 
 }
-span{
-    font-size:150px;
-    font-family: Arial, Helvetica, sans-serif;
-
-}
-br{
-    font-size:150px;
-    font-family: Arial, Helvetica, sans-serif;
-
+.table{
+    width:600px;
+    height:200px;
+    font-size:50px;
+    display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, -50%)
 }
