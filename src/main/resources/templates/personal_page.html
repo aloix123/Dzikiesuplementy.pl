@@ -11,19 +11,22 @@
     <link rel="stylesheet" href="maincss.css" type="text/css">
     <link rel="stylesheet" href="Creatne.css" type="text/css">
     <link rel="stylesheet" href="bacetbuttons.css" type="text/css">
+    <link rel="stylesheet" href="portfolio.css" type="text/css">
 </head>
 <body>
 <div id="container">
     <div th:replace="/fragments/header :: navbar"/>
     <div id="freespace"></div>
     <div id="portfolioDiv">
-        <h1><span th:text="${name}" th:remove="tag"> adress</span></h1>
-        <h1>dssssssssssssss</h1>
-        <h1></h1>
-        <h1></h1>
+        <br/>
         <span th:text="${name}" th:remove="tag"> adress</span>
+        <br/>
+        <span th:text="${name}" th:remove="tag"> adress</span>
+        <br/>
         <span th:text="${surname}" th:remove="tag"> surname</span>
+        <br/>
         <span th:text="${adress}" th:remove="tag"> adress</span>
+        <br/>
         <span th:text="${number}" th:remove="tag"> number</span>
     </div>
 </div>
