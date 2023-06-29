@@ -32,7 +32,7 @@ public class Application {
 	//TODO
 
 	//FIXME NAPRAW KOSZYK:
-	// - dodaj przyciski (edytuj dane) przy portfolio)
+	// - napraw logout
 	// - napraw logowanie do  i napisz errory stron(1. sprawdź czy nie pozostawia user pustych okien,2. sprawdź czy nie ma takiego samego usera 3.
 	// - zmień wygląd loginu
 	//  - jak będziesz miał czas to zmień te grafiki bo są brzyskie

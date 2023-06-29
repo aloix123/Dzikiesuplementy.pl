@@ -21,6 +21,7 @@ public class ClientController {
 
     @GetMapping("/")
     public String viewHomePage(Model model) throws IOException {
+        System.out.println(MainPageHandler.checkIfFileClear());
         if (MainPageHandler.checkIfFileClear()){
             model.addAttribute("flag","userloggedin");
             model.addAttribute("username", "Witaj "+UserFileHandler.getUserName());

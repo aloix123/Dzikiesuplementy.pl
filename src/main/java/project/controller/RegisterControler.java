@@ -29,7 +29,6 @@ public class RegisterControler {
         User user1=new User(user.getUsername(),user.getPassword());
         userService.saveuser(user1);
         Client client=new Client(user1.getId(),newclient.getAdress(),newclient.getNumber(),newclient.getName(),newclient.getSurname());
-
         clientService.saveClient(client);
 
 

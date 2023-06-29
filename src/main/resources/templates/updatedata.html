@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>Document</title>
+  <link rel="stylesheet" href="maincss.css" type="text/css">
+  <link rel="stylesheet" href="Creatne.css" type="text/css">
+  <link rel="stylesheet" href="bacetbuttons.css" type="text/css">
+  <link rel="stylesheet" href="portfolio.css" type="text/css">
+  <style>
+        button {
+          position: relative;
+          display: inline-block;
+          margin: 15px;
+          padding: 15px 30px;
+          text-align: center;
+          font-size: 100px;
+          letter-spacing: 1px;
+          text-decoration: none;
+          color: #725AC1;
+          background: transparent;
+          cursor: pointer;
+          transition: ease-out 0.5s;
+          border: 2px solid #725AC1;
+          border-radius: 10px;
+          box-shadow: inset 0 0 0 0 #725AC1;
+          height:200px;
+          width:600px;
+    }
+    button:hover {
+      color: white;
+      box-shadow: inset 0 -200px 0 0 #725AC1;
+    }
+    button:active {
+      transform: scale(0.9);
+     }
+    #butpoz{
+        position: fixed;
+        right:    1px;
+        bottom:   1px;
+    }
+       }
+    </style>
+</head>
+<body>
+<div id="container">
+  <form th:action="@{/personal/update/{id}/{uid}(id=${client.clientid},uid=${client.userid})}"
+        th:object="${client}" method="post">
+    <label >Name</label>
+    <input type="text" th:field="*{userid}" placeholder="surame">
+    <label for="adress">surname</label>
+    <input type="text" th:field="*{adress}" id="adress" placeholder="adress">
+    <label for="number">adress</label>
+    <input type="text" th:field="*{number}" id="number" placeholder="number">
+    <label for="name">number </label>
+    <input type="text" th:field="*{name}" id="name" placeholder="name">
+    <label for="surname">number </label>
+    <input type="text" th:field="*{surname}" id="surname" placeholder="surname">
+    <input type="submit" value="Update client">
+  </form>
+
+</div>
+<div id="butpoz">
+  <a method="POST" th:href="@{/cart/update/{id}(id=${client.clientid})}"><button> zapisz nowe dane</button></a>
+</div>
+</body>
+</html>

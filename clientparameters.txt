@@ -1,4 +1,4 @@
 a
-a
+barcza pętla
 a
 a

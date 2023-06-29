@@ -13,6 +13,7 @@ import project.model.User;
 import project.service.UserService;
 import project.util.ClientFIlehandler;
 import project.util.Loginhandler;
+import project.util.MainPageHandler;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -48,6 +49,8 @@ public class LoginControler {
         clientFIlehandler.clearfile();
         Loginhandler loginhandler=new Loginhandler();
         loginhandler.clearfile();
+        System.out.println("to działa");
+        System.out.println(MainPageHandler.checkIfFileClear());
         return "redirect:/";
     }
 

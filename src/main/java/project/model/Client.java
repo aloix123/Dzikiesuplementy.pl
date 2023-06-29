@@ -5,11 +5,11 @@ import javax.persistence.*;
 @Entity
 public class Client {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Basic(optional = false)
     @Column(name = "id",unique=true, nullable = false)
     private Long clientid;
-    private Long userid;
+    Long userid;
     String adress;
     String number;
     String name;
