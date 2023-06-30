@@ -53,6 +53,13 @@ public class ClientService {
 
     public void deleteClient(long id) {
         repository.deleteById(id);
+
+    }
+    public void updateClientById(long id){
+      Client oldclient=repository.getById(id)  ;
+      Client client=new Client(id-3,(long) oldclient.getUserid(),oldclient.getAdress(),oldclient.getNumber(),oldclient.getName(),oldclient.getSurname());
+      repository.deleteById(id);
+      repository.save(client);
     }
     public void setuserparameters() throws FileNotFoundException, IOException {
         File file = new File("userparameters.txt");

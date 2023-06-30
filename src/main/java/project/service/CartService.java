@@ -1,10 +1,10 @@
 package project.service;
 
-import org.hibernate.Criteria;
-import org.hibernate.SQLQuery;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
+import org.hibernate.engine.spi.SessionLazyDelegator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import project.model.Cart;
 import project.repository.CartRepository;
@@ -15,6 +15,7 @@ import java.util.Map;
 
 @Service
 public class CartService {
+
     @Autowired
     SessionFactory factory;
     @Autowired
@@ -47,6 +48,18 @@ public class CartService {
     }
     public  void clearCart(){
         cartRepository.deleteAll();
+
     }
 
+
+    public void updateClientCarts( long clientid){
+        Session session= factory.openSession();
+        Transaction tx=session.beginTransaction();
+
+        String sql = "UPDATE CART SET CLIENTID=CLIENTID+1 WHERE CLIENTID="+clientid;
+        SQLQuery query = session.createSQLQuery(sql);
+        query.executeUpdate();
+        tx.commit();
+
+    }
 }

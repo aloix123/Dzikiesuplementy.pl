@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import project.model.Client;
 import project.model.User;
+import project.service.CartService;
 import project.service.ClientService;
 import project.service.UserService;
 import project.util.ClientFIlehandler;
@@ -19,7 +20,8 @@ import java.io.FileNotFoundException;
 import java.util.List;
 @Controller
 public class PersonalControler {
-
+    @Autowired
+    CartService cartService;
     @Autowired ClientService clientService;
     @Autowired
     UserService userService;
@@ -45,11 +47,14 @@ public class PersonalControler {
     public String setPersonalPage( @PathVariable("uid") long uid,@PathVariable("id") long id,Model model,Client client){
         User user = userService.getById(uid);
 
+
         clientService.deleteClient(id);
         clientService.saveClient(client);
         ClientFIlehandler clientFIlehandler = new ClientFIlehandler();
         clientFIlehandler.clearfile();
         clientService.setuserparameters();
+        cartService.updateClientCarts(id);
+
         return "redirect:/personal";
     }
     }
