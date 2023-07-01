@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
 body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
+form {border: 3px solid #f1f1f1;
+width:50%;
+
+}
+
 
 input[type=text], input[type=password] {
   width: 100%;
@@ -55,6 +59,12 @@ span.psw {
   padding-top: 16px;
 }
 
+#mainlogindiv{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+  }
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
   span.psw {
@@ -66,27 +76,31 @@ span.psw {
   }
 }
 </style>
+
 </head>
 <body>
 
-<h2>Login Form</h2>
 
-<form th:action="@{/login}" th:object="${user}" method="post">
-    <div class="imgcontainer">
-        <img src="img_avatar2.png" alt="Avatar" class="avatar">
-    </div>
+<div id="mainlogindiv">
+    <h2>Login Form</h2>
+    <form th:action="@{/login}" th:object="${user}" method="post">
+        <div class="imgcontainer">
+            <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        </div>
 
-    <div class="container">
-        <div><label> User Name : <input type="text" name="username"/> </label></div>
-        <div><label> Password: <input type="password" name="password"/> </label></div>
-        <div><input type="submit" value="Sign In"/></div>
-    </div>
+        <div class="container">
+            <div><label> User Name : <input type="text" name="username"/> </label></div>
+            <div><label> Password: <input type="password" name="password"/> </label></div>
+            <div><input type="submit" value="Sign In"/></div>
+        </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-        <button type="button" class="cancelbtn">Cancel</button>
-        <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-</form>
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+</div>
+
 
 </body>
 </html>

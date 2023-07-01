@@ -33,7 +33,6 @@ public class Application {
 
 	//FIXME NAPRAW KOSZYK:
 	// - napraw logowanie do  i napisz errory stron(1. sprawdź czy nie pozostawia user pustych okien,2. sprawdź czy nie ma takiego samego usera 3.
-	// - zmień wygląd loginu
 	//  - jak będziesz miał czas to zmień te grafiki bo są brzyskie
 	// - po zakupie produktów dodaj informacje zwrątną (nwm jakiś alert czy coś)
 	// - napraw wygląd paska głównego
