@@ -18,6 +18,18 @@ public class Client {
     public Client() {
     }
 
+    @Override
+    public String toString() {
+        return "Client{" +
+                "clientid=" + clientid +
+                ", userid=" + userid +
+                ", adress='" + adress + '\'' +
+                ", number='" + number + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
+    }
+
     public Client(Long userid, String adress, String number, String name, String surname) {
         this.userid = userid;
         this.adress = adress;
@@ -26,14 +38,7 @@ public class Client {
         this.surname = surname;
     }
 
-    public Client(long l, long userid, String adress, String number, String name, String surname) {
-        this.userid = userid;
-        this.adress = adress;
-        this.number = number;
-        this.name = name;
-        this.surname = surname;
-        this.clientid=l;
-    }
+
 
     public String getName() {
         return name;

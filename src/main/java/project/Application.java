@@ -32,11 +32,9 @@ public class Application {
 	//TODO
 
 	//FIXME NAPRAW KOSZYK:
-	// - napraw logowanie do  i napisz errory stron(1. sprawdź czy nie pozostawia user pustych okien,2. sprawdź czy nie ma takiego samego usera 3.
 	//  - jak będziesz miał czas to zmień te grafiki bo są brzyskie
 	// - po zakupie produktów dodaj informacje zwrątną (nwm jakiś alert czy coś)
 	// - napraw wygląd paska głównego
-	// - wyśrodkuj jakoś produkty do kupienia
 	// - dodaj jakąś treść na głównej stronie
 
 }

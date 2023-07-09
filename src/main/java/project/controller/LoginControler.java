@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import project.model.User;
+import project.service.ClientService;
 import project.service.UserService;
 import project.util.ClientFIlehandler;
 import project.util.Loginhandler;
@@ -25,6 +26,8 @@ import java.util.Map;
 @Controller
 public class LoginControler {
     @Autowired
+    ClientService clientService;
+    @Autowired
     private UserService userService;
     @GetMapping("/login")
     public String getloginpage(Model model) {
@@ -35,9 +38,12 @@ public class LoginControler {
     @SneakyThrows
     @PostMapping("login")
     public String checklogin(@ModelAttribute("user") User user){
-        if(userService.checkIfUserInData(user)){
+        if(userService.checkIfUserInData(user) & userService.isFieldsNullInUser(user)){
             Loginhandler.addUserToText(user);
+            ClientFIlehandler.addClientToText(user);
+            clientService.setuserparameters();
             return "redirect:/";
+
         }
         else {
             return "error_page";

@@ -90,9 +90,11 @@
         </tr>
     </div>
 </div>
-<div id="butpoz" >
-    <a th:href="@{/cart/clear}"><button> Kup teraz </button></a>
-</div>
+<td>
+    <span th:if="${isbascetclear=='clear'}"><div id="butpoz" ><a th:href="@{/cart/clear}"><button> Kup teraz </button></a></div></span>
+    <span th:unless="${ isbascetclear== 'clear'}">nie kupiłeś nic jeszcze</span>
+</td>
+
 
 </body>
 </html>

@@ -1,9 +1,6 @@
 package project.service;
 
-import org.hibernate.Criteria;
-import org.hibernate.SQLQuery;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.model.Product;
@@ -58,5 +55,13 @@ public class BasketService {
         Collections.sort(resultlist);
         return resultlist;
     }
+    public boolean isBacketClear(long userid){
+        Session session = factory.openSession();
+        Transaction transaction=session.beginTransaction();
+        String sqlQuery="SELECT ID FROM CART  WHERE  CLIENTID="+userid;
+        var backetlist=session.createSQLQuery(sqlQuery).list();
+        return backetlist.isEmpty();
 
+
+    }
 }
