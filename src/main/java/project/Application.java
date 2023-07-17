@@ -36,5 +36,5 @@ public class Application {
 	// - po zakupie produktów dodaj informacje zwrątną (nwm jakiś alert czy coś)
 	// - napraw wygląd paska głównego
 	// - dodaj jakąś treść na głównej stronie
-
+	// - spraw aby zdjęcie dzika było przeniesieniem na główną stronę
 }
