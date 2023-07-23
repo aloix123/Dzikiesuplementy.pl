@@ -25,10 +25,15 @@ a{
     color:azure ;
     font-size: 50px;
     font-style: italic;
+
+    text-decoration:none;
+    padding:10px;
 }
 #navmenu{
         text-decoration:none;
+        color:white;
       }
+
 .nav{
     
     display: flex;

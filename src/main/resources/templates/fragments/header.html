@@ -14,6 +14,7 @@
 
     </div>
 
+
 </head>
 <body>
     <div th:fragment="navbar">
@@ -30,15 +31,15 @@
                     <li>
                         <div th:switch="${flag}">
                             <p th:case="'userloggedin'">
-                                <a href="personal">portfloio</a>
+                                <a href="personal" >portfloio</a>
                                 <a href="cart"><img  src="Images/koszyk.gif" width = "100" height = "50"></a>
-                                <a th:href="@{/logout}">wyloguj się </a>
-                                <a th:text="${username}"></a>
+                                <a th:href="@{/logout}" style="text-decoration:none" >wyloguj się </a>
+                                <a th:text="${username}" style="text-decoration:none" ></a>
                             </p>
 
                             <p th:case="userNotloggedin">
-                                <a th:href="@{/login}">zaloguj sie </a>
-                                <a th:href="@{/registration}">zarejestruj się </a>
+                                <a th:href="@{/login}" style="text-decoration:none ;color:white" >zaloguj sie </a>
+                                <a th:href="@{/registration}"style="text-decoration:none; color:white" >zarejestruj się </a>
 
                             </p>
                         </div>
