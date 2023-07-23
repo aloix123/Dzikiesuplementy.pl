@@ -23,30 +23,33 @@
                 <div class="navbar-header">
                     <img src="Images/logo.gif" width = "300" height = "100">
                 </div>
-                <ul class="nav navbar-nav">
-                    <li><a href="creatine">Kreatyna</a></li>
-                    <li><a href="whey">Białko</a></li>
-                    <li><a href="preworkout">przedtreningówka</a></li>
+                <div id=""headerdiv>
+                    <ul class="nav navbar-nav">
+                        <a href="creatine">Kreatyna</a>
+                        <a href="whey">Białko</a>
+                        <a href="preworkout">przedtreningówka</a>
 
-                    <li>
-                        <div id ="headerdiv"th:switch="${flag}">
-                            <p th:case="'userloggedin'">
-                                <a href="personal" >portfloio</a>
+
+                        <div  th:switch="${flag}">
+                            <p th:case="userloggedin">
+                                <a  href="personal" >portfloio</a>
                                 <a href="cart"><img  src="Images/koszyk.gif" width = "100" height = "50"></a>
-                                <a th:href="@{/logout}" style="text-decoration:none" >wyloguj się </a>
-                                <a th:text="${username}" style="text-decoration:none" ></a>
+                                <a th:href="@{/logout}"  >wyloguj się </a>
+                                <a th:text="${username}"  ></a>
                             </p>
 
                             <p th:case="userNotloggedin">
-                                <a th:href="@{/login}" style="text-decoration:none ;color:white" >zaloguj sie </a>
-                                <a th:href="@{/registration}"style="text-decoration:none; color:white" >zarejestruj się </a>
+                                <a th:href="@{/login}"  >zaloguj sie </a>
+                                <a th:href="@{/registration}" >zarejestruj się </a>
 
                             </p>
                         </div>
-                    </li>
 
 
-                </ul>
+
+                    </ul>
+                </div>
+
             </div>
         </nav>
     </div>
