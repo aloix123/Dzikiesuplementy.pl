@@ -1,11 +1,9 @@
 package project.service;
 
-import org.hibernate.Criteria;
-import org.hibernate.SQLQuery;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import project.model.Client;
 import project.model.User;
 import project.repository.UserREpository;
 
@@ -24,7 +22,29 @@ public class UserService {
     public User getById(long id){
         return userREpository.getById(id);
     }
+    public boolean isFieldsNullInUser(User user){
+        if( user.getUsername().isEmpty() & user.getPassword().isEmpty() ){
+            return false;
 
+        }
+        return true;
+    }
+    public boolean isTHeSameParametersInData( User user){
+
+        Session session = factory.openSession();
+        Transaction transaction=session.beginTransaction();
+        String sql = "SELECT * FROM USER ";
+        transaction.commit();
+        List<User> clientlist=session.createQuery("SELECT a FROM  User a", User.class).getResultList();
+        session.close();
+        System.out.println(clientlist);
+        for( User cl:clientlist){
+            if (user.getUsername().equals(cl.getUsername() ) ){
+                return false;
+            }
+        }
+        return true;
+    }
 
     public boolean checkIfUserInData(User user){
         Session session=factory.openSession();
@@ -40,9 +60,10 @@ public class UserService {
         for(Object object : results) {
             Map row = (Map)object;
             if (row.get("PASSWORD").equals(logginglist.get(passwordindex))& row.get("USERNAME").equals(logginglist.get(usernameindex)))
-                return true;
+                return  true;
 
         }
         return  false;
     }
 }
+

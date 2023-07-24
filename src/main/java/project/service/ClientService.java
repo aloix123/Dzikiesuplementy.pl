@@ -1,10 +1,6 @@
 package project.service;
 
-
-import org.hibernate.Criteria;
-import org.hibernate.SQLQuery;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.model.Client;
@@ -53,7 +49,13 @@ public class ClientService {
 
     public void deleteClient(long id) {
         repository.deleteById(id);
+
     }
+    public boolean isClientFieldNull(Client client, User user){
+        System.out.println(client.toString());
+        return (client.getNumber() == "")  ||(client.getSurname() == "")  ||(client.getName() == "")  ||(client.getAdress() == "")  ||(user.getPassword() == "")  ||(user.getUsername() == "");
+    }
+
     public void setuserparameters() throws FileNotFoundException, IOException {
         File file = new File("userparameters.txt");
         Scanner sc = null;

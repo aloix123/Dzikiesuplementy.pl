@@ -13,7 +13,12 @@
    
     
 }
+#headerdiv{
+    text-decoration:none;
+    color:green;
 
+
+}
 .navbar{
     position: fixed;
     top: 0;
@@ -25,10 +30,15 @@ a{
     color:azure ;
     font-size: 50px;
     font-style: italic;
+
+    text-decoration:none;
+     padding:10px;
 }
 #navmenu{
         text-decoration:none;
+        color:white;
       }
+
 .nav{
     
     display: flex;
@@ -51,4 +61,8 @@ a{
 img {
     max-width: 50%;
     max-height: 100%;
+}
+button{
+  background-color: coral;
+
 }

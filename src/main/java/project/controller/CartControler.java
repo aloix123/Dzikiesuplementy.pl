@@ -35,7 +35,9 @@ public class CartControler {
         else{
             model.addAttribute("flag","userNotloggedin");
         }
-
+        if (!basketService.isBacketClear(clientService.getclientid())){
+            model.addAttribute("isbascetclear","clear");
+        }
 
         return "koszyk";
     }

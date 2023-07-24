@@ -5,7 +5,7 @@
     <title>Error page</title>
 </head>
 <body>
-<h1>Entered data are incorrect! Try again!</h1>
+<span th:text="${error}" th:remove="tag">
 <a href="/register">Register</a>
 <a href="/login">Login</a>
 </body>
