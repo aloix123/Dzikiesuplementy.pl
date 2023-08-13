@@ -62,7 +62,7 @@ img {
     max-width: 50%;
     max-height: 100%;
 }
-button{
+.button{
   background-color: coral;
-
+  color:black;
 }

@@ -13,7 +13,13 @@
         <link rel="stylesheet" href="Creatne.css" type="text/css">
 
     </div>
+<style>
 
+
+    a{
+       text-decoration:none;
+    }
+</style>
 
 </head>
 <body>
@@ -23,24 +29,24 @@
                 <div class="navbar-header">
                     <img src="Images/logo.gif" width = "300" height = "100">
                 </div>
-                <div id=""headerdiv>
+                <div >
                     <ul class="nav navbar-nav">
-                        <a href="creatine">Kreatyna</a>
-                        <a href="whey">Białko</a>
-                        <a href="preworkout">przedtreningówka</a>
+                        <a style="text-decoration:none;color: #FFFFFF;"href="creatine">Kreatyna</a>
+                        <a style="text-decoration:none;color: #FFFFFF;"href="whey">Białko</a>
+                        <a style="text-decoration:none;color: #FFFFFF;"href="preworkout">przedtreningówka</a>
 
 
                         <div  th:switch="${flag}">
                             <p th:case="userloggedin">
-                                <button><a  href="personal" >portfloio</a></button>
-                                <a href="cart"><img  src="Images/koszyk.gif" width = "100" height = "50"></a>
-                                <a th:href="@{/logout}"  >wyloguj się </a>
-                                <a th:text="${username}"  ></a>
+                                <a  style="text-decoration:none;color: #FFFFFF;" href="personal" >portfloio</a>
+                                <a style="text-decoration:none;color: #FFFFFF;"href="cart"><img  src="Images/koszyk.gif" width = "100" height = "50"></a>
+                                <a style="text-decoration:none;color: #FFFFFF;"th:href="@{/logout}"  >wyloguj się </a>
+                                <a style="text-decoration:none;color: #FFFFFF;"th:text="${username}"  ></a>
                             </p>
 
                             <p th:case="userNotloggedin">
-                                <a th:href="@{/login}"  >zaloguj sie </a>
-                                <a th:href="@{/registration}" >zarejestruj się </a>
+                                <a style="text-decoration:none;color: #FFFFFF;"th:href="@{/login}"  >zaloguj sie </a>
+                                <a style="text-decoration:none;color: #FFFFFF;"th:href="@{/registration}" >zarejestruj się </a>
 
                             </p>
                         </div>
