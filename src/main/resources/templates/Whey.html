@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Document</title>
-
+    <link rel="stylesheet" href="byuButton.css" type="text/css">
     <div th:replace="/fragments/header :: header"></div>
 </head>
 <body>
@@ -21,12 +21,11 @@
             <p class="price">30zł</p>
             <div th:switch="${flag}">
                 <p th:case="userloggedin">
-                    <a th:href="@{/addwhey/{id}(id=${Product.id})}">kup produkt</a>
+                    <a th:href="@{/addwhey/{id}(id=${Product.id})}"><button class="button-3" role="button">kup teraz </button></a>
                 </p>
 
                 <p th:case="userNotloggedin">
-                    <a> żębu kupić musisz się zalogować</a>
-
+                    <button class="button-3" role="button"> nie jestes zalogowany</button>
                 </p>
             </div>
         </div>
